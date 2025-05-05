@@ -16,7 +16,7 @@ describe "test de tito" {
     }
 
     test "la velocidad de tito es " {
-        assert.equals(0.9**5*490/70,tito.velocidad())
+        assert.equals(31.5,tito.velocidad())
     }
 
     test "ahora la velocidad es 7 porque consumio terere" {
@@ -29,4 +29,28 @@ describe "test de tito" {
         assert.equals(0,tito.velocidad())
     }
 
+    test "el rendimiento del licuado con wisky y terere es 24" {
+        licuado.agregarIngrediente(wisky)
+        licuado.agregarIngrediente(terere)
+        assert.equals(24, licuado.rendimiento(2))
+
+    }
+
+    test "el rendimiento del agua saborizada mezclado con terere es de 1.25" {
+        assert.equals(1.25, aguaSaborizada.rendimiento(5))
+    }
+
+    test "si el coctel esta preparado con cianuro que tiene rendimiento 0 entonces el coctel va a rendir con 0" {
+    coctel.agregarBebida(cianuro)
+    coctel.agregarBebida(terere)
+    coctel.rendimiento(1)
+    assert.equals(0, coctel.rendimientoTotal())
+    }
+
+    test "description" {
+    coctel.agregarBebida(wisky)
+    coctel.agregarBebida(terere)
+    coctel.rendimiento(2)
+    assert.equals(2.8, coctel.rendimientoTotal())
+    }
 }
